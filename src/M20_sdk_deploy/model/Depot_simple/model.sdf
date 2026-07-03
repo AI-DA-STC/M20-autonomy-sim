@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+    <model name="Depot">
+        <static>true</static>
+        <link name="main">
+            <collision name="collision">
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>100 100</size>
+                    </plane>
+                </geometry>
+            </collision>
+            <visual name="ROOF_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Depot/6/files/meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>ROOF</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>0.8 0.8 0.8</diffuse>
+                    <specular>0.2 0.2 0.2</specular>
+                </material>
+            </visual>
+            <visual name="WALLS_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Depot/6/files/meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>WALLS</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>0.7 0.7 0.7</diffuse>
+                    <specular>0.1 0.1 0.1</specular>
+                </material>
+            </visual>
+            <!--
+            Disabled for M20 navigation tests.
+
+            Gazebo / Ignition can treat COLLADA submeshes inconsistently for
+            collision meshes. When this collision used Depot.dae with only the
+            WALLS submesh selected, hidden geometry from the original Depot
+            asset (notably BOXSET near the robot start area) could still behave
+            like an obstacle while remaining invisible in the simplified scene.
+            Keep the visual walls for LiDAR, and use the plane collision below
+            as the physical floor.
+            <collision name="WALLS_collision">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Depot/6/files/meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>WALLS</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+            </collision>
+            -->
+            <visual name="PILLERS_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Depot/6/files/meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>PILLERS</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>0.6 0.6 0.6</diffuse>
+                    <specular>0.2 0.2 0.2</specular>
+                </material>
+            </visual>
+            <visual name="FLOOR_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Depot/6/files/meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>FLOOR</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>0.5 0.5 0.5</diffuse>
+                    <specular>0.1 0.1 0.1</specular>
+                </material>
+            </visual>
+            <visual name="WINDOW_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Depot/6/files/meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>WINDOW</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>0.3 0.5 0.7</diffuse>
+                    <specular>0.5 0.5 0.5</specular>
+                </material>
+            </visual>
+            <visual name="STAIRS_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Depot/6/files/meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>STAIRS</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>0.6 0.6 0.6</diffuse>
+                    <specular>0.2 0.2 0.2</specular>
+                </material>
+            </visual>
+            <light type="point" name="warehouse_light_1">
+                <pose>0 0 5 0 0 0</pose>
+                <diffuse>1 1 1 1</diffuse>
+                <specular>0.3 0.3 0.3 1</specular>
+                <attenuation>
+                    <range>50</range>
+                    <linear>0.01</linear>
+                    <constant>0.1</constant>
+                    <quadratic>0.001</quadratic>
+                </attenuation>
+                <cast_shadows>false</cast_shadows>
+                <intensity>1.0</intensity>
+            </light>
+        </link>
+        <joint name="world_joint" type="fixed">
+            <parent>world</parent>
+            <child>main</child>
+        </joint>
+    </model>
+</sdf>

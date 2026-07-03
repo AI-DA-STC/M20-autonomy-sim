@@ -1,0 +1,59 @@
+/**:
+    ros__parameters:
+        use_sim_time: true
+
+        use_imu_as_input: false
+        prop_at_freq_of_imu: true
+        check_satu: true
+        init_map_size: 10
+        point_filter_num: 2
+        runtime_pos_log_enable: false
+
+        filter_size_surf: 0.2
+        filter_size_map: 0.2
+        cube_side_length: 1000.0
+        space_down_sample: true
+
+        common:
+            lid_topic: "/M20/LIDAR/FRONT_LIO"
+            imu_topic: "/M20/IMU"
+            con_frame: false
+            con_frame_num: 1
+            cut_frame: false
+            cut_frame_time_interval: 0.1
+            time_lag_imu_to_lidar: 0.0
+
+        preprocess:
+            lidar_type: 2
+            scan_line: 16
+            timestamp_unit: 0
+            blind: 0.05
+
+        mapping:
+            imu_en: true
+            start_in_aggressive_motion: false
+            extrinsic_est_en: false
+            imu_time_inte: 0.01
+            satu_acc: 30.0
+            satu_gyro: 35.0
+            acc_norm: 9.81
+            lidar_meas_cov: 0.01
+            acc_cov_output: 500.0
+            gyr_cov_output: 1000.0
+            b_acc_cov: 0.0001
+            b_gyr_cov: 0.0001
+            imu_meas_acc_cov: 0.1
+            imu_meas_omg_cov: 0.1
+            gyr_cov_input: 0.01
+            acc_cov_input: 0.1
+            plane_thr: 0.1
+            match_s: 81.0
+            fov_degree: 180.0
+            det_range: 30.0
+            gravity_align: false
+            gravity: [0.0, 0.0, -9.81]
+            gravity_init: [0.0, 0.0, -9.81]
+            extrinsic_T: [0.38, 0.0, 0.08]
+            extrinsic_R: [1.0, 0.0, 0.0,
+                          0.0, 1.0, 0.0,
+                          0.0, 0.0, 1.0]

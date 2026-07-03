@@ -1,0 +1,50 @@
+/**:
+    ros__parameters:
+        use_sim_time: true
+
+        use_imu_as_input: false
+        runtime_pos_log_enable: false
+
+        filter_size_surf_min: 0.2
+        filter_size_map_min: 0.2
+
+        common:
+            lid_topic: "/M20/LIDAR/FRONT"
+            imu_topic: "/M20/IMU"
+            con_frame: false
+            con_frame_num: 1
+            cut_frame: false
+            cut_frame_time_interval: 0.1
+            time_lag_imu_to_lidar: 0.0
+
+        preprocess:
+            lidar_type: 2        # Velodyne-compatible (generic PointCloud2)
+            scan_line: 16
+            timestamp_unit: 0    # Gazebo Classic publishes in seconds
+            blind: 0.5
+
+        mapping:
+            imu_en: true
+            start_in_aggressive_motion: false
+            extrinsic_est_en: false
+            imu_time_inte: 0.01  # 100Hz IMU
+            satu_acc: 30.0
+            satu_gyro: 35.0
+            acc_norm: 9.81
+            lidar_meas_cov: 0.01
+            acc_cov_output: 500.0
+            gyr_cov_output: 1000.0
+            b_acc_cov: 0.0001
+            b_gyr_cov: 0.0001
+            imu_meas_acc_cov: 0.1
+            imu_meas_omg_cov: 0.1
+            gyr_cov_input: 0.01
+            acc_cov_input: 0.1
+            plane_thr: 0.1
+            match_s: 81.0
+            fov_degree: 180.0    # M20 front lidar FOV
+            det_range: 30.0
+            extrinsic_T: [0.32028, 0.0, -0.013]   # front lidar pose on base_link
+            extrinsic_R: [1.0, 0.0, 0.0,
+                          0.0, 1.0, 0.0,
+                          0.0, 0.0, 1.0]

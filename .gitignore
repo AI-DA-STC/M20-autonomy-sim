@@ -1,0 +1,14 @@
+build/
+install/
+log/
+rosbag/
+glim_docker/
+
+*.pyc
+__pycache__/
+.cache/
+.ros/
+.vscode/
+.DS_Store
+
+autonomy_stack_go2/src/base_autonomy/vehicle_simulator/mesh/unity/
